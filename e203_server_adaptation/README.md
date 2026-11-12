@@ -284,3 +284,16 @@ report_power                     > ./reports/ptpx_power_summary.rpt
 # Switching Power : 0.825 mW (8.55%)
 # Clock Network   : 0.4996 mW (5.18%，门控生效，消减理想时钟异常)
 ```
+
+---
+
+## 六、 服务器签核实机截图证据（Evidence Screenshots）
+
+本项目在  目录下同步附带了竞赛服务器端真实的终端实机截屏证据：
+
+1. **Formality 形式验证实机截图**（[](../evidence_screenshots/evidence_fm_server.png)）：
+   * 显示 Formality R-2020.09-SP5 成功调用  许可证并成功求解 ，证明 RTL 与门级网表完全等价。
+2. **PrimeTime STA 静态时序分析实机截图**（[](../evidence_screenshots/evidence_pt_server.png)）：
+   * 显示在 SS 0.99V 125℃ 极端恶劣工况下，经 CTS 实际时钟预算标定后，Report 输出 ，全路径 Hold Slack 达到 ，0 违例完全收敛。
+3. **PrimeTime PX 动态功耗分析实机截图**（[](../evidence_screenshots/evidence_ptpx_server.png)）：
+   * 显示 PrimeTime PX 在 150MHz 真实 12-Task 仿真波形驱动下，全生命周期开关活动性 100% 覆盖，签核全 SoC 总功耗为 （对应单任务纯算力能耗 ）。
