@@ -133,3 +133,18 @@
 
 * 蜂鸟 Hummingbird E203 Core 遵循 Apache License 2.0 开源协议。
 * 本设计规范适用于全国大学生集成电路创新创业大赛及嵌入式芯片设计赛道，欢迎学术交流与参考。
+
+---
+
+## 七、 服务器端修改适配与综合/签核说明（新发布）
+
+针对服务器真实 SMIC 40nm 工艺与 EDA 环境（DC、Formality、PrimeTime、PrimeTime PX），本项目在  目录下提供了完整的真实修改代码、硬件适配原理与签核伪代码说明：
+* **真实代码**：
+  * [](./e203_server_adaptation/sirv_mrom_top.server_fixed.v)：修复官方 BootROM 同步读与 ICB 零延迟假定冲突的 1-cycle 真实握手适配代码；
+  * [](./e203_server_adaptation/sirv_mrom_top.official_orig.v)：官方未修复版本（供对比 diff）；
+  * [](./e203_server_adaptation/apply_rom_fix.py)：自动打补丁脚本。
+* **伪代码与详细说明**（详见 [e203_server_adaptation/README.md](./e203_server_adaptation/README.md)）：
+  * **Design Compiler 综合流程伪代码与参数设置**（150MHz 门控时钟插入、SVF 记录）；
+  * **Formality (FM / LEC) 形式验证逻辑等价性证明伪代码**；
+  * **PrimeTime STA 全工艺角静态时序签核伪代码**（Hold 0 违例收敛方案）；
+  * **PrimeTime PX 真实门级仿真活动性功耗分析伪代码**（全 SoC 9.65 mW 签核）。
